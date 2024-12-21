@@ -18,14 +18,14 @@ db.exec(`
     `)
 
 db.exec(`
-   CREATE TABLE todos {
-   id INTEGER PRIMARY_KEY AUTOINCREMENT,
+   CREATE TABLE todos (
+   id INTEGER PRIMARY KEY AUTOINCREMENT,
    user_id INTEGER,
     task TEXT,
-    compeleted BOOLEAN DEFAULT 0,
+    completed BOOLEAN DEFAULT 0,
     FOREIGN KEY(user_id) REFERENCES users(id)
    
-   } 
+)
     
     
     `)
