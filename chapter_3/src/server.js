@@ -15,9 +15,9 @@ const __dirname=dirname(__filename)
 //middleware
 //serves the html file from /public dir and tells express to serve all file frpm public folder as static assests
 //any req for the css file will be resilved to public directory
+app.use(express.json())
 
 app.use(express.static(path.join(__dirname,'../public')));
-app.use(express.json())
 
 //serving up the html file from /public dir
 app.get('/',(req,res)=>{
