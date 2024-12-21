@@ -11,6 +11,10 @@ const PORT= process.env.PORT || 5003
 const __filename=fileURLToPath(import.meta.url)
 //get directory name from file path
 const __dirname=dirname(__filename)
+//serves the html file from /public dir and tells express to serve all file frpm public folder as static assests
+//any req for the css file will be resilved to public directory
+
+app.use(express.static(path.join(__dirname,'../public')));
 
 
 //serving up the html file from /public dir
