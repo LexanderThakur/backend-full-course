@@ -4,6 +4,7 @@ import{fileURLToPath} from 'url'
 
 import authRoutes from './routes/authRoutes.js'
 import todoRoutes from './routes/todoRoutes.js'
+import authMiddleware from './middleware/authMiddleware.js'
 
 
 const app=express();
@@ -21,6 +22,7 @@ app.use(express.json())
 
 app.use(express.static(path.join(__dirname,'../public')));
 
+
 //serving up the html file from /public dir
 app.get('/',(req,res)=>{
 
@@ -29,7 +31,7 @@ res.sendFile(path.join(__dirname,'public','index.html'));
 })
 //routes
 app.use('/auth',authRoutes)
-app.use('/todos',todoRoutes)
+app.use('/todos',authMiddleware,todoRoutes)
 
 
 
